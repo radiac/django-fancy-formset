@@ -3,7 +3,11 @@
 This is a plain JavaScript library to let users add and remove forms in a
 [Django](https://www.djangoproject.com/) inline formset.
 
-![Add and remove forms in an inline formset](https://raw.githubusercontent.com/radiac/django-fancy-formset/master/docs/example.gif)
+<p align="center" width="100%">
+  <kbd>
+    <img src="https://raw.githubusercontent.com/radiac/django-fancy-formset/master/docs/example.gif" alt="Add and remove forms in an inline formset">
+  </kbd>
+</p>
 
 Features:
 
