@@ -1,0 +1,12 @@
+# JavaScript build
+node_modules
+dist
+
+# Documentation
+docs/_build
+docs/venv
+
+# Python example
+__pycache__
+example/db.sqlite3
+example/venv

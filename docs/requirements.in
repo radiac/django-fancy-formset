@@ -1,0 +1,10 @@
+pip-tools
+
+# Core build requirements
+sphinx<6  # need to update the theme...
+sphinx-gitref
+sphinx-js
+-e git+https://github.com/radiac/sphinx_radiac_theme.git#egg=sphinx_radiac_theme
+
+# Optional
+# sphinx-autobuild

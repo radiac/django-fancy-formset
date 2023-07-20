@@ -1,0 +1,41 @@
+{
+  "name": "django-fancy-formset",
+  "version": "0.2.0",
+  "description": "A pure JavaScript library to manage Django formsets",
+  "source": "src/formset.js",
+  "main": "dist/formset.js",
+  "module": "dist/formset.module.js",
+  "type": "module",
+  "scripts": {
+    "js:build": "vite build",
+    "js:watch": "vite build --watch",
+    "css:build": "sass --no-source-map src/formset.scss dist/formset.css && csso dist/formset.css --output dist/formset.min.css",
+    "css:watch": " sass --watch src/formset.scss dist/formset.css",
+    "build": "rm -f dist/* && npm run js:build && npm run css:build",
+    "watch": "rm -f dist/* && concurrently \"npm run js:watch\" \"npm run css:watch\"",
+    "test": "NODE_OPTIONS=\"--experimental-vm-modules --trace-warnings\" npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/radiac/django-fancy-formset.git"
+  },
+  "keywords": [
+    "django",
+    "form",
+    "formset"
+  ],
+  "author": "Richard Terry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/radiac/django-fancy-formset/issues"
+  },
+  "homepage": "https://github.com/radiac/django-fancy-formset#readme",
+  "devDependencies": {
+    "csso": "^5.0.5",
+    "csso-cli": "^4.0.2",
+    "jest": "^29.5.0",
+    "jsdom": "^22.1.0",
+    "sass": "^1.63.6",
+    "vite": "^4.3.9"
+  }
+}

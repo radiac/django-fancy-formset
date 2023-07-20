@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Library</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+    }
+  </style>
+
+  <link rel="stylesheet" href="/static/formset.css">
+
+  <style>
+    form p > label {
+      display: inline-block;
+      width: 10rem;
+    }
+  </style>
+
+</head>
+<body>
+
+<h1>Library</h1>
+<p>A django-fancy-formset example</p>
+<hr>
+
+
+  <h2>Add Author</h2>
+
+  <form method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="9yuE6DFJ14J3UZtuKcmKHl79mwY6oyxlH7X4TMNfcJXlvdCTcT96ZW0LPdbr4uY3">
+    <p>
+    <label for="id_name">Name:</label>
+    <input type="text" name="name" maxlength="255" required id="id_name">
+
+
+
+
+  </p>
+
+    <h2>Books</h2>
+    <div data-formset="book_set">
+      <input type="hidden" name="book_set-TOTAL_FORMS" value="3" id="id_book_set-TOTAL_FORMS"><input type="hidden" name="book_set-INITIAL_FORMS" value="0" id="id_book_set-INITIAL_FORMS"><input type="hidden" name="book_set-MIN_NUM_FORMS" value="0" id="id_book_set-MIN_NUM_FORMS"><input type="hidden" name="book_set-MAX_NUM_FORMS" value="5" id="id_book_set-MAX_NUM_FORMS">
+      <fieldset style="display: none">
+        <p>
+    <label for="id_book_set-__prefix__-title">Title:</label>
+    <input type="text" name="book_set-__prefix__-title" maxlength="255" id="id_book_set-__prefix__-title">
+
+
+  </p>
+
+
+  <p>
+    <label for="id_book_set-__prefix__-year_published">Year published:</label>
+    <input type="number" name="book_set-__prefix__-year_published" min="0" id="id_book_set-__prefix__-year_published">
+
+
+  </p>
+
+
+  <p>
+    <label for="id_book_set-__prefix__-DELETE">Delete:</label>
+    <input type="checkbox" name="book_set-__prefix__-DELETE" id="id_book_set-__prefix__-DELETE">
+
+
+      <input type="hidden" name="book_set-__prefix__-id" id="id_book_set-__prefix__-id"><input type="hidden" name="book_set-__prefix__-author" id="id_book_set-__prefix__-author">
+
+  </p>
+      </fieldset>
+
+        <fieldset>
+          <p>
+    <label for="id_book_set-0-title">Title:</label>
+    <input type="text" name="book_set-0-title" maxlength="255" id="id_book_set-0-title">
+
+
+  </p>
+
+
+  <p>
+    <label for="id_book_set-0-year_published">Year published:</label>
+    <input type="number" name="book_set-0-year_published" min="0" id="id_book_set-0-year_published">
+
+
+  </p>
+
+
+  <p>
+    <label for="id_book_set-0-DELETE">Delete:</label>
+    <input type="checkbox" name="book_set-0-DELETE" id="id_book_set-0-DELETE">
+
+
+      <input type="hidden" name="book_set-0-id" id="id_book_set-0-id"><input type="hidden" name="book_set-0-author" id="id_book_set-0-author">
+
+  </p>
+        </fieldset>
+
+        <fieldset>
+          <p>
+    <label for="id_book_set-1-title">Title:</label>
+    <input type="text" name="book_set-1-title" maxlength="255" id="id_book_set-1-title">
+
+
+  </p>
+
+
+  <p>
+    <label for="id_book_set-1-year_published">Year published:</label>
+    <input type="number" name="book_set-1-year_published" min="0" id="id_book_set-1-year_published">
+
+
+  </p>
+
+
+  <p>
+    <label for="id_book_set-1-DELETE">Delete:</label>
+    <input type="checkbox" name="book_set-1-DELETE" id="id_book_set-1-DELETE">
+
+
+      <input type="hidden" name="book_set-1-id" id="id_book_set-1-id"><input type="hidden" name="book_set-1-author" id="id_book_set-1-author">
+
+  </p>
+        </fieldset>
+
+        <fieldset>
+          <p>
+    <label for="id_book_set-2-title">Title:</label>
+    <input type="text" name="book_set-2-title" maxlength="255" id="id_book_set-2-title">
+
+
+  </p>
+
+
+  <p>
+    <label for="id_book_set-2-year_published">Year published:</label>
+    <input type="number" name="book_set-2-year_published" min="0" id="id_book_set-2-year_published">
+
+
+  </p>
+
+
+  <p>
+    <label for="id_book_set-2-DELETE">Delete:</label>
+    <input type="checkbox" name="book_set-2-DELETE" id="id_book_set-2-DELETE">
+
+
+      <input type="hidden" name="book_set-2-id" id="id_book_set-2-id"><input type="hidden" name="book_set-2-author" id="id_book_set-2-author">
+
+  </p>
+        </fieldset>
+
+    </div>
+
+    <button type="submit">Save</button>
+  </form>
+
+
+  <script src="/static/formset.js"></script>
+  <script>
+
+
+    window.addEventListener("DOMContentLoaded", e => { init_formsets() });
+    const formsetLog = e => {
+      console.log(e.type, e.detail.formset.options.prefix, e.detail.form);
+    }
+    window.addEventListener("formset:init", formsetLog);
+    window.addEventListener("formset:form-add", formsetLog);
+    window.addEventListener("formset:form-activate", formsetLog);
+    window.addEventListener("formset:form-deactivate", formsetLog);
+    window.addEventListener("formset:form-destroy", formsetLog);
+  </script>
+
+  <xscript type="module">
+    import formsets, { Form, Formset } from "/static/formset.module.js";
+
+    window.addEventListener("DOMContentLoaded", e => { init_formsets() });
+    const formsetLog = e => {
+      console.log(e.type, e.detail.formset.options.prefix, e.detail.form);
+    }
+    window.addEventListener("formset.module:init", formsetLog);
+    window.addEventListener("formset.module:form-add", formsetLog);
+    window.addEventListener("formset.module:form-activate", formsetLog);
+    window.addEventListener("formset.module:form-deactivate", formsetLog);
+    window.addEventListener("formset.module:form-destroy", formsetLog);
+  </script>
+
+
+</body>
+</html>

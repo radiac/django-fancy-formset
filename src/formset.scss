@@ -1,0 +1,192 @@
+$assets-path: "./assets/";
+$fieldset-border: #aaa !default;
+$fieldset-odd-bg: #eee !default;
+$fieldset-even-bg: #ddd !default;
+$fieldset-delete-width: 50px;
+$fieldset-delete-fg: #aaa !default;
+$fieldset-delete-bg: transparent !default;
+$fieldset-delete-fg-hover: #fff !default;
+$fieldset-delete-bg-hover: #a22 !default;
+$fieldset-delete-fg-active: #eee !default;
+$fieldset-delete-bg-active: #822 !default;
+$fieldset-padding: 0.25rem 1rem !default;
+$fieldset-add-padding: 1rem !default;
+$fieldset-add-fg: #444 !default;
+$fieldset-add-bg: #ccc !default;
+$fieldset-add-fg-hover: #fff !default;
+$fieldset-add-bg-hover: #2a2 !default;
+
+$selector-formset: "[data-formset]" !default;
+$selector-form: "& > fieldset" !default;
+
+#{$selector-formset}.formset-active {
+
+  #{$selector-form} {
+    margin: 0;
+    padding: $fieldset-padding;
+    overflow: hidden;
+    border: 0;
+    border-bottom: 1px solid $fieldset-border;
+
+    // Move the delete button to the RHS and restyle
+    position: relative;
+    padding-right: $fieldset-padding + $fieldset-delete-width + ($fieldset-delete-width * 0.2);
+
+    &:nth-child(odd) {
+      background: $fieldset-odd-bg;
+    }
+
+    &:nth-child(even) {
+      background: $fieldset-even-bg;
+    }
+
+    // Delete button is last child
+    p:last-child {
+      transition: width 0.25s ease-in-out;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: $fieldset-delete-width;
+      margin: 0;
+
+      label {
+        background-color: $fieldset-delete-bg;
+
+        &,
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          text-indent: -999rem;
+        }
+
+        &::before {
+          content: ' ';
+          background-color: $fieldset-delete-fg;
+          // rather than complicate the build process, on linux:
+          // $ base64 assets/delete-bin-6-line.svg
+          mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgyNHYyNEgweiIvPjxwYXRoIGQ9Ik03IDRWMmgxMHYyaDV2MmgtMnYxNWExIDEgMCAwIDEtMSAxSDVhMSAxIDAgMCAxLTEtMVY2SDJWNGg1ek02IDZ2MTRoMTJWNkg2em0zIDNoMnY4SDlWOXptNCAwaDJ2OGgtMlY5eiIvPjwvc3ZnPg==');
+          mask-position: center;
+          mask-repeat: no-repeat;
+        }
+
+        &:hover {
+          background: $fieldset-delete-bg-hover;
+          cursor: pointer;
+
+          &::before {
+            background-color: $fieldset-delete-fg-hover;
+          }
+        }
+      }
+
+      input[name$="-DELETE"] {
+        display: none;
+      }
+    }
+
+    // Style for deleted
+    &.deleted {
+      p:not(:last-child) {
+        opacity: 0.25;
+      }
+
+      p:last-child {
+        width: 100%;
+
+        label {
+          background: $fieldset-delete-bg-active;
+
+          &::before {
+            background-color: $fieldset-delete-fg-active;
+          }
+
+          &:hover {
+            background: $fieldset-delete-bg-hover;
+
+            &::before {
+              background-color: $fieldset-delete-fg-hover;
+            }
+          }
+        }
+      }
+    }
+
+    // Animate new formset
+    &.added {
+      animation: add-new 0.5s ease-in-out;
+    }
+
+    @keyframes add-new {
+      0% {
+        max-height: 0;
+      }
+
+      99% {
+        // Needs to expand to a fixed size; aim for taller than the viewport
+        max-height: 2000px;
+      }
+
+      100% {
+        max-height: auto;
+      }
+    }
+  }
+
+
+  // Restyle the add button
+  button.formset-add {
+    border: 0;
+    width: 100%;
+    padding: $fieldset-add-padding;
+    margin: 0 0 $fieldset-add-padding 0;
+    background: $fieldset-add-bg;
+    position: relative;
+    overflow: hidden;
+    text-indent: -999rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $fieldset-add-fg;
+      // $ base64 assets/add-circle-fill.svg
+      mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgyNHYyNEgweiIvPjxwYXRoIGQ9Ik0xMiAyMkM2LjQ3NyAyMiAyIDE3LjUyMyAyIDEyUzYuNDc3IDIgMTIgMnMxMCA0LjQ3NyAxMCAxMC00LjQ3NyAxMC0xMCAxMHptLTEtMTFIN3YyaDR2NGgydi00aDR2LTJoLTRWN2gtMnY0eiIvPjwvc3ZnPg==');
+      mask-position: center;
+      mask-repeat: no-repeat;
+    }
+
+
+    &:hover {
+      background: $fieldset-add-bg-hover;
+      cursor: pointer;
+
+      &::before {
+        background-color: $fieldset-add-fg-hover;
+      }
+    }
+  }
+
+  &.formset-at-min {
+    #{$selector-form}:not(.deleted) {
+
+      label[for$="-DELETE"],
+      input[type="checkbox"][name$="-DELETE"] {
+        display: none;
+      }
+    }
+  }
+
+  &.formset-at-max {
+    button.formset-add {
+      display: none;
+    }
+  }
+}

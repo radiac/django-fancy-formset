@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static "formset.css" %}">
+
+  <style>
+    form p > label {
+      display: inline-block;
+      width: 10rem;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <h2>{% if author %}Edit{% else %}Add{% endif %} Author</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <h2>Books</h2>
+    <div data-formset="{{ formset.prefix }}">
+      {{ formset.management_form }}
+      <fieldset style="display: none">
+        {{ formset.empty_form.as_p }}
+      </fieldset>
+      {% for form in formset %}
+        <fieldset>
+          {{ form.as_p }}
+        </fieldset>
+      {% endfor %}
+    </div>
+
+    <button type="submit">Save</button>
+  </form>
+
+  <!-- Either -->
+  <script src="{% static "formset.js" %}"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", e => { formset.init() });
+    const formsetLog = e => {
+      console.log(e.type, e.detail.formset.options.prefix, e.detail.form);
+    }
+    window.addEventListener("formset:init", formsetLog);
+    window.addEventListener("formset:form-add", formsetLog);
+    window.addEventListener("formset:form-activate", formsetLog);
+    window.addEventListener("formset:form-deactivate", formsetLog);
+    window.addEventListener("formset:form-destroy", formsetLog);
+  </script>
+
+  <!-- Or
+  <script type="module">
+    import { init, Form, Formset } from "{% static "formset.module.js" %}";
+
+    window.addEventListener("DOMContentLoaded", e => { init() });
+    const formsetLog = e => {
+      console.log(e.type, e.detail.formset.options.prefix, e.detail.form);
+    }
+    window.addEventListener("formset:init", formsetLog);
+    window.addEventListener("formset:form-add", formsetLog);
+    window.addEventListener("formset:form-activate", formsetLog);
+    window.addEventListener("formset:form-deactivate", formsetLog);
+    window.addEventListener("formset:form-destroy", formsetLog);
+  </script>
+  -->
+{% endblock %}

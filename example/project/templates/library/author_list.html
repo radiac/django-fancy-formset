@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+<h2>Authors</h2>
+
+{% block content %}
+<ul>
+  {% for author in authors %}
+    <li><a href="{% url "library:author_form" author_id=author.id %}">{{ author.name }}</a></li>
+  {% endfor %}
+</ul>
+
+<p><a href="{% url "library:author_form" %}">Add new author</a></p>
+
+{% endblock %}
