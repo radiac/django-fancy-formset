@@ -56,18 +56,6 @@ export class Form {
   }
 
   /**
-   * Get the name of this form
-   *
-   * Primarily used for debugging; there's usually a cheaper way to get this when needed
-   *
-   * @returns {string} Form prefix
-   */
-  getPrefix() {
-    // Extract the form prefix from the field names
-    return this.getFields()[0].name.match(this._namePattern)[1];
-  }
-
-  /**
    * Get a list of the field elements in the form
    *
    * @returns {Array}  List of form field HTMLElements

@@ -2,6 +2,9 @@
 node_modules
 dist
 
+# JavaScript test
+coverage
+
 # Documentation
 docs/_build
 docs/venv

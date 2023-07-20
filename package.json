@@ -13,7 +13,7 @@
     "css:watch": " sass --watch src/formset.scss dist/formset.css",
     "build": "rm -f dist/* && npm run js:build && npm run css:build",
     "watch": "rm -f dist/* && concurrently \"npm run js:watch\" \"npm run css:watch\"",
-    "test": "NODE_OPTIONS=\"--experimental-vm-modules --trace-warnings\" npx jest"
+    "test": "NODE_OPTIONS=\"--experimental-vm-modules --trace-warnings\" npx jest --coverage"
   },
   "repository": {
     "type": "git",

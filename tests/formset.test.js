@@ -1,6 +1,6 @@
 import { JSDOM } from 'jsdom';
-//import { init as init_formsets } from '../src/formset';
-import { init as init_formsets } from '../dist/formset.module';
+import { init as init_formsets } from '../src/formset';
+//import { init as init_formsets } from '../dist/formset.module';
 
 
 /**
