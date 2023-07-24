@@ -3,13 +3,6 @@
 
 {% block head %}
   <link rel="stylesheet" href="{% static "formset.css" %}">
-
-  <style>
-    form p > label {
-      display: inline-block;
-      width: 10rem;
-    }
-  </style>
 {% endblock %}
 
 {% block content %}
@@ -20,6 +13,7 @@
     {{ form.as_p }}
 
     <h2>Books</h2>
+    {# Custom formset #}
     <div data-formset="{{ formset.prefix }}">
       {{ formset.management_form }}
       <fieldset style="display: none">
@@ -35,6 +29,7 @@
     <button type="submit">Save</button>
   </form>
 
+  {# Manual intialisation #}
   <!-- Either -->
   <script src="{% static "formset.js" %}"></script>
   <script>

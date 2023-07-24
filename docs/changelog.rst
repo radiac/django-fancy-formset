@@ -19,7 +19,10 @@ Changes:
 * Internal API updated and formalised for extensibility. See the documentation on
   extending for details.
 
-* Improved support for HTML variations, improved CSS, addressed outstanding bugs
+* Added Python package.
+
+* Improved support for more formset layouts and HTML variations; improved CSS; addressed
+  outstanding bugs.
 
 
 0.1.0, 2022-08-15

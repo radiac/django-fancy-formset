@@ -18,6 +18,7 @@ $fieldset-add-bg-hover: #2a2 !default;
 
 $selector-formset: "[data-formset]" !default;
 $selector-form: "& > fieldset" !default;
+$selector-delete-con: ".formset-delete" !default;
 
 #{$selector-formset}.formset-active {
 
@@ -41,7 +42,7 @@ $selector-form: "& > fieldset" !default;
     }
 
     // Delete button is last child
-    p:last-child {
+    #{$selector-delete-con} {
       transition: width 0.25s ease-in-out;
       position: absolute;
       top: 0;
@@ -49,6 +50,7 @@ $selector-form: "& > fieldset" !default;
       bottom: 0;
       width: $fieldset-delete-width;
       margin: 0;
+      list-style: none; // in case it's as_ul
 
       label {
         background-color: $fieldset-delete-bg;
@@ -91,11 +93,7 @@ $selector-form: "& > fieldset" !default;
 
     // Style for deleted
     &.deleted {
-      p:not(:last-child) {
-        opacity: 0.25;
-      }
-
-      p:last-child {
+      #{$selector-delete-con} {
         width: 100%;
 
         label {

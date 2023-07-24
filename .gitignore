@@ -5,6 +5,10 @@ dist
 # JavaScript test
 coverage
 
+# Python build
+fancy_formset/static/fancy_formset
+
+
 # Documentation
 docs/_build
 docs/venv

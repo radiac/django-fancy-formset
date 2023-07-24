@@ -1,6 +1,7 @@
 from django import forms
+from fancy_formset import FancyInlineFormSet, FancyModelFormSet
 
-from .models import Author, Book
+from .models import Author, Book, Review
 
 
 class AuthorForm(forms.ModelForm):
@@ -16,4 +17,11 @@ BookInlineFormSet = forms.inlineformset_factory(
     min_num=0,
     max_num=5,
     extra=3,
+)
+
+ReviewModelFormSet = forms.modelformset_factory(
+    Review,
+    formset=FancyModelFormSet,
+    fields=("reviewer", "review"),
+    can_delete=True,
 )

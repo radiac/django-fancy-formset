@@ -147,6 +147,12 @@ export class Form {
         this.undeleted();
       }
     });
+
+    // Style the parent container
+    checkbox.closest(
+      this.options.deleteConClosest
+    )?.classList.add(this.options.deleteConCss);
+
     return checkbox
   }
 
@@ -156,7 +162,7 @@ export class Form {
    * @returns {bool} True if the form's delete checkbox is checked
    */
   get isDeleted() {
-    return this.deleteEl.checked;
+    return this.deleteEl?.checked === true;
   }
 
   /**
@@ -181,7 +187,6 @@ export class Form {
    * Render the form whenever the formset changes or renders
    */
   render() {
-
     // Update root style for CSS
     this.rootEl.classList.toggle(this.options.formDeletedCss, this.isDeleted);
   }
@@ -625,6 +630,37 @@ export const defaultOptions = {
    * @memberof options
    */
   addButtonCss: "formset-add",
+
+  /**
+   * Selector used to find the field container ancestor of the delete form field
+   *
+   * The delete element for a form will be ``<input name="...-DELETE">``. We find this
+   * element within the form root as ``deleteEl``, then find its container with
+   * ``deleteEl.closest(options.deleteConClosest)``
+   *
+   * In default form layouts, this will be:
+   *
+   * * ``as_p``: ``<p> ... <input name="...-DELETE"> ... </p>``
+   * * ``as_div``: ``<div> ... <input name="...-DELETE"> ... </div>``
+   * * ``as_list``: ``<li> ... <input name="...-DELETE"> ... </li>``
+   * * ``as_table``: ``<tr> ... <input name="...-DELETE"> ... </tr>``
+   *
+   * Default: ``"p, div, tr, li"``
+   *
+   * @memberof options
+   */
+  deleteConClosest: "p,div,tr,li",
+
+  /**
+   * CSS class to add to the form field's delete container
+   *
+   * This is a convenience to simplify restyling the delete button.
+   *
+   * Default: ``"formset-delete"``
+   *
+   * @memberof options
+   */
+  deleteConCss: "formset-delete",
 
   /**
    * CSS class name for the formset root when it has the minimum number of active forms

@@ -1,0 +1,16 @@
+<div data-formset="{{ formset.prefix }}">
+  {{ formset.management_form }}
+  <fieldset style="display: none">
+    <table>
+      {{ formset.empty_form.as_table }}
+    </table>
+  </fieldset>
+  {% for form in formset %}
+    <fieldset>
+      <table>
+        {{ form.as_table }}
+      </table>
+    </fieldset>
+  {% endfor %}
+</div>
+<script>{{ formset.fancy_init }}</script>

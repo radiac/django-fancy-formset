@@ -11,7 +11,8 @@
     "js:watch": "vite build --watch",
     "css:build": "sass --no-source-map src/formset.scss dist/formset.css && csso dist/formset.css --output dist/formset.min.css",
     "css:watch": " sass --watch src/formset.scss dist/formset.css",
-    "build": "rm -f dist/* && npm run js:build && npm run css:build",
+    "django": "mkdir -p fancy_formset/static/fancy_formset/ && cp dist/* fancy_formset/static/fancy_formset/",
+    "build": "rm -f dist/* && npm run js:build && npm run css:build && npm run django",
     "watch": "rm -f dist/* && concurrently \"npm run js:watch\" \"npm run css:watch\"",
     "test": "NODE_OPTIONS=\"--experimental-vm-modules --trace-warnings\" npx jest --coverage"
   },

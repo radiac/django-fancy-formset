@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+  {{ formset.media }}
+{% endblock %}
+
+{% block content %}
+  <h2>Reviews for {{ book }}</h2>
+
+  <form method="post">
+    {% csrf_token %}
+
+    {{ formset.as_p }}
+
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}

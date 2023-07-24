@@ -85,3 +85,9 @@ form has been added:
 
     * ``event.detail.formset`` - the current formset
     * ``event.detail.form`` - the current form
+
+
+For more examples of working with events, see the ``Author`` formset in the `example
+Django site`__ in the git repository.
+
+__  https://github.com/radiac/django-fancy-formset/tree/main/example

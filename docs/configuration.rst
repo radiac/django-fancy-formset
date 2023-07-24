@@ -130,6 +130,8 @@ You can configure the formsets using an ``options`` object - for example:
 .. js:autoattribute:: options.formDeletedCss
 .. js:autoattribute:: options.addButtonLabel
 .. js:autoattribute:: options.addButtonCss
+.. js:autoattribute:: options.deleteConClosest
+.. js:autoattribute:: options.deleteConCss
 .. js:autoattribute:: options.formsetAtMinCss
 .. js:autoattribute:: options.allowDeleteAtMin
 .. js:autoattribute:: options.formsetAtMaxCss

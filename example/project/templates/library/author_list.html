@@ -5,7 +5,15 @@
 {% block content %}
 <ul>
   {% for author in authors %}
-    <li><a href="{% url "library:author_form" author_id=author.id %}">{{ author.name }}</a></li>
+    <li>
+      <a href="{% url "library:author_form" author_id=author.id %}">{{ author.name }}</a>
+
+      <ul>
+        {% for book in author.books.all %}
+          <li>{{ book }} (<a href="{% url "library:review_form" book_id=book.id %}">Reviews</a>)</li>
+        {% endfor %}
+      </ul>
+    </li>
   {% endfor %}
 </ul>
 
