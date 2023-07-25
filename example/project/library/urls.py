@@ -2,6 +2,7 @@ from django.urls import path
 
 from .views import author_form, authors_list, review_form
 
+
 app_name = "library"
 urlpatterns = [
     path("form/", author_form, name="author_form"),

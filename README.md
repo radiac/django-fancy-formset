@@ -63,11 +63,11 @@ Add to your page directly using [unpkg](https://unpkg.com/):
 <html>
   <head>
     <!-- Optional styles -->
-    <link rel="stylesheet" href="https://unpkg.com/django-fancy-formset@^2/dist/styles.js">
+    <link rel="stylesheet" href="https://unpkg.com/django-fancy-formset@^1/dist/formset.min.css">
   </head>
   <body>
     <!-- Django formset goes here -->
-    <script src="https://unpkg.com/django-fancy-formset@^2"></script>
+    <script src="https://unpkg.com/django-fancy-formset@^1"></script>
     <script>formset.init();</script>
   </body>
 </html>

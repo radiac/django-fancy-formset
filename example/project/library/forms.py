@@ -1,5 +1,6 @@
 from django import forms
-from fancy_formset import FancyInlineFormSet, FancyModelFormSet
+
+from fancy_formset import FancyModelFormSet
 
 from .models import Author, Book, Review
 

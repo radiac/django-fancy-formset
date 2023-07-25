@@ -1,0 +1,15 @@
+#
+# Developer requirements
+#
+
+# Dev tools
+black
+isort
+pip-tools
+ruff
+
+# Testing
+model_bakery
+pytest
+pytest-cov
+pytest-django

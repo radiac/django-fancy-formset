@@ -6,6 +6,9 @@
   "main": "dist/formset.js",
   "module": "dist/formset.module.js",
   "type": "module",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "js:build": "vite build",
     "js:watch": "vite build --watch",

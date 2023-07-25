@@ -14,12 +14,12 @@ function init_formset(options) {
 }
 function assertFormCount(expected, formset) {
   expect(
-    document.querySelectorAll('[id^="id_book_set-"]:not([id*="__prefix__"])[id$="-DELETE"]'
+    document.querySelectorAll('[id^="id_books-"]:not([id*="__prefix__"])[id$="-DELETE"]'
   ).length).toBe(expected);
 }
 function assertDelete(id, checked) {
-  expect(document.querySelector(`#id_book_set-${id}-DELETE`)).not.toBeNull();
-  expect(document.querySelector(`#id_book_set-${id}-DELETE`).checked).toBe(checked);
+  expect(document.querySelector(`#id_books-${id}-DELETE`)).not.toBeNull();
+  expect(document.querySelector(`#id_books-${id}-DELETE`).checked).toBe(checked);
 }
 function click(selector, count=1) {
   let btn = document.querySelector(selector);
@@ -29,7 +29,7 @@ function click(selector, count=1) {
   }
 }
 function clickDelete(id) {
-  click(`label[for="id_book_set-${id}-DELETE"]`);
+  click(`label[for="id_books-${id}-DELETE"]`);
 }
 
 /**
@@ -85,7 +85,7 @@ describe('Add form', () => {
     click('.formset-add');
     assertFormCount(1);
     assertDelete(0, false);
-    expect(document.querySelector('#id_book_set-1-DELETE')).toBeNull();
+    expect(document.querySelector('#id_books-1-DELETE')).toBeNull();
     expect(formset._nextId).toBe(1);
     expect(document.querySelector('div[data-formset]').classList).not.toContain('formset-at-min');
   });
@@ -131,7 +131,7 @@ describe('Add form', () => {
   });
 
   it('minimum 1 doesnt remove all at start', () => {
-    let minEl = document.getElementById('id_book_set-MIN_NUM_FORMS');
+    let minEl = document.getElementById('id_books-MIN_NUM_FORMS');
     expect(minEl).not.toBeNull();
     minEl.value = 1;
     let formset = init_formset();
@@ -144,7 +144,7 @@ describe('Add form', () => {
   });
 
   it('minimum 1 forbids delete button', () => {
-    let minEl = document.getElementById('id_book_set-MIN_NUM_FORMS');
+    let minEl = document.getElementById('id_books-MIN_NUM_FORMS');
     expect(minEl).not.toBeNull();
     minEl.value = 1;
 
@@ -155,7 +155,7 @@ describe('Add form', () => {
   });
 
   it('minimum 1 with allowDeleteAtMin allows delete button', () => {
-    let minEl = document.getElementById('id_book_set-MIN_NUM_FORMS');
+    let minEl = document.getElementById('id_books-MIN_NUM_FORMS');
     expect(minEl).not.toBeNull();
     minEl.value = 1;
 
@@ -169,7 +169,7 @@ describe('Add form', () => {
   });
 
   it('maximum 3 forbids add button at 3', () => {
-    let maxEl = document.getElementById('id_book_set-MAX_NUM_FORMS');
+    let maxEl = document.getElementById('id_books-MAX_NUM_FORMS');
     expect(maxEl).not.toBeNull();
     maxEl.value = 3;
 
@@ -188,7 +188,7 @@ describe('Add form', () => {
   });
 
   it('maximum 3 with allowAddAtMax allows add button at 3', () => {
-    let maxEl = document.getElementById('id_book_set-MAX_NUM_FORMS');
+    let maxEl = document.getElementById('id_books-MAX_NUM_FORMS');
     expect(maxEl).not.toBeNull();
     maxEl.value = 3;
 

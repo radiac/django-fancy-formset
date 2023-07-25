@@ -1,0 +1,96 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-fancy-formset"
+description = "A Django app and pure JavaScript library to manage formsets"
+dynamic = ["version"]
+authors = [
+    { name="Richard Terry", email="code@radiac.net" },
+]
+readme = "README.rst"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Django",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+keywords = ["django", "formset"]
+requires-python = ">=3.7"
+dependencies = [
+    "Django>=2.2",
+]
+
+[project.urls]
+"Homepage" = "https://radiac.net/projects/django-fancy-formset/"
+"Documentation" = "https://django-fancy-formset.readthedocs.io/en/latest/"
+"Source" = "https://github.com/radiac/django-fancy-formset"
+"NPM" = "https://www.npmjs.com/package/django-fancy-formset"
+"Bug Tracker" = "https://github.com/radiac/django-fancy-formset/issues"
+
+[tool.setuptools.packages.find]
+include = ["fancy_formset*"]
+exclude = ["docs*", "tests*", "tests_django*", "src*", "dist*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "fancy_formset.__version__"}
+
+[tool.pytest.ini_options]
+addopts = "--cov=fancy_formset --cov-report=term --cov-report=html"
+testpaths = [
+    "tests_django",
+    "fancy_formset",
+    "example",
+]
+pythonpath = [
+    ".",
+    "example/"
+]
+DJANGO_SETTINGS_MODULE = "project.settings"
+
+[tool.coverage.run]
+source = ["fancy_formset"]
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+include = "\\.pyi?$"
+
+[tool.isort]
+multi_line_output = 3
+line_length = 88
+known_django = "django"
+sections = ["FUTURE", "STDLIB", "DJANGO", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+include_trailing_comma = true
+lines_after_imports = 2
+skip = [".git", "node_modules", ".tox"]
+
+[tool.mypy]
+follow_imports = "skip"
+ignore_missing_imports = true
+
+[tool.doc8]
+max-line-length = 88
+ignore-path = ["*.txt", ".tox", "node_modules"]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F"]
+ignore = [
+    "E501",  # line length
+]
+exclude = [
+    ".tox",
+    ".git",
+    "*/static/CACHE/*",
+    "docs",
+    "node_modules",
+    "tests",
+    "src",
+    "dist",
+]
+
+[tool.djlint]
+profile="django"

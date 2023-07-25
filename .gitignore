@@ -8,6 +8,8 @@ coverage
 # Python build
 fancy_formset/static/fancy_formset
 
+# Python test
+.coverage
 
 # Documentation
 docs/_build
