@@ -55,11 +55,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install --upgrade setuptools build wheel
-    - name: Download dist artifacts
+    - name: Download JavaScript dist artifacts
       uses: actions/download-artifact@v3
       with:
         name: dist
-        name: fancy_formset/static/fancy_formset
+        path: fancy_formset/static/fancy_formset
     - name: Build a binary wheel and a source tarball
       run: |
         python -m build --outdir=dist-pypi
