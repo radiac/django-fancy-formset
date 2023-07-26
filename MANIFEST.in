@@ -1,0 +1,3 @@
+recursive-include fancy_formset/static *
+recursive-include fancy_formset/templates *
+global-exclude .gitkeep

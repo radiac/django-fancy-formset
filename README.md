@@ -4,11 +4,11 @@ This is a plain JavaScript library to let users add and remove forms in a Django
 formset. It can be installed from PyPI as a Django app, from NPM as a JavaScript module,
 or linked to directly from your HTML.
 
-<p align="center" width="100%">
-  <kbd>
-    <img src="https://github.com/radiac/django-fancy-formset/raw/main/docs/example.gif" alt="Add and remove forms in an inline formset">
-  </kbd>
-</p>
+[![PyPi version](https://badgen.net/pypi/v/django-fancy-formset/)](https://pypi.org/project/django-fancy-formset)
+[![Npm version](https://badgen.net/npm/v/django-fancy-formset)](https://npmjs.com/package/django-fancy-formset)
+[![Documentation](https://readthedocs.org/projects/django-fancy-formset/badge/?version=latest)](https://django-fancy-formset.readthedocs.io/en/latest/?badge=latest)
+[![CI](https://github.com/radiac/django-fancy-formset/actions/workflows/ci.yml/badge.svg)](https://github.com/radiac/django-fancy-formset/actions/workflows/ci.yml)
+
 
 Features:
 
@@ -18,6 +18,13 @@ Features:
 * Raises events to allow for customisation
 * Class based and designed to be extended
 * Default styling available
+
+
+<p align="center" width="100%">
+  <kbd>
+    <img src="https://github.com/radiac/django-fancy-formset/raw/main/docs/example.gif" alt="Add and remove forms in an inline formset">
+  </kbd>
+</p>
 
 
 ## Quickstart using Python
@@ -51,6 +58,9 @@ then leave it to Django to render your formset:
 </form>
 ```
 
+See the
+[Django installation documentation](https://django-fancy-formset.readthedocs.io/en/latest/installation-django.html)
+for more details
 
 ## Quickstart using JavaScript
 
@@ -73,9 +83,9 @@ Add to your page directly using [unpkg](https://unpkg.com/):
 </html>
 ```
 
-You can also use it in your bundler or browser as module - see installation
-documentation.
-
+You can also use it in your bundler or browser as module - see the
+[JavaScript-only installation documentation](https://django-fancy-formset.readthedocs.io/en/latest/installation-javascript.html)
+for more details
 
 Render your formset in your Django template. The template structure which will work with
 the default configuration is:
@@ -102,10 +112,13 @@ the default configuration is:
 </form>
 ```
 
-This can all be customised with options passed as `formset.init(options)` - see
-configuration documentation for details.
+This can all be customised with options passed as `formset.init(options)` - see the
+[configuration documentation](https://django-fancy-formset.readthedocs.io/en/latest/configuration.html)
+for details.
 
 
 ## Find out more
 
-For full installation and usage instructions, see the documentation.
+For full installation and usage instructions, as well as information on events, the API
+and customisation, see the
+[documentation](https://django-fancy-formset.readthedocs.io/en/latest/).

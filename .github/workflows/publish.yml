@@ -1,0 +1,72 @@
+name: NPM
+
+on:
+   push:
+     tags:
+       - 'v*'
+
+jobs:
+  build:
+    name: Build dist artefacts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm run build
+      - name: Archive dist artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
+
+  publish_npm:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - name: Download dist artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish_pypi:
+    name: Publish to PyPI
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install --upgrade setuptools build wheel
+    - name: Download dist artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: dist
+        name: fancy_formset/static/fancy_formset
+    - name: Build a binary wheel and a source tarball
+      run: |
+        python -m build --outdir=dist-pypi
+    - name: Publish to PyPI
+      if: startsWith(github.ref, 'refs/tags')
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        packages-dir: dist-pypi/
+        username: __token__
+        password: ${{ secrets.PYPI_TOKEN }}

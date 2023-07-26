@@ -2,8 +2,16 @@
 Changelog
 =========
 
-0.2.0, 2023-07-??
+0.2.1, 2023-07-26
 =================
+
+Packaging and documentation updates.
+
+
+0.2.0, 2023-07-25
+=================
+
+Initial release under the name ``django-fancy-formset``.
 
 Changes:
 
@@ -19,7 +27,7 @@ Changes:
 * Internal API updated and formalised for extensibility. See the documentation on
   extending for details.
 
-* Added Python package.
+* Added Python package with default templates.
 
 * Improved support for more formset layouts and HTML variations; improved CSS; addressed
   outstanding bugs.

@@ -1,21 +1,23 @@
 # JavaScript build
-node_modules
-dist
+node_modules/
+dist/
 
 # JavaScript test
-coverage
+coverage/
 
 # Python build
-fancy_formset/static/fancy_formset
+fancy_formset/static/fancy_formset/
+dist-pypi/
+django_fancy_formset.egg-info/
 
 # Python test
 .coverage
 
 # Documentation
-docs/_build
-docs/venv
+docs/_build/
+docs/venv/
 
 # Python example
-__pycache__
+__pycache__/
 example/db.sqlite3
-example/venv
+example/venv/

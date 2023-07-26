@@ -9,7 +9,7 @@ dynamic = ["version"]
 authors = [
     { name="Richard Terry", email="code@radiac.net" },
 ]
-readme = "README.rst"
+readme = "README.md"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Framework :: Django",
@@ -29,6 +29,9 @@ dependencies = [
 "Source" = "https://github.com/radiac/django-fancy-formset"
 "NPM" = "https://www.npmjs.com/package/django-fancy-formset"
 "Bug Tracker" = "https://github.com/radiac/django-fancy-formset/issues"
+
+[tool.setuptools]
+include-package-data = true
 
 [tool.setuptools.packages.find]
 include = ["fancy_formset*"]

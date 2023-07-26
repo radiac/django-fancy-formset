@@ -8,11 +8,19 @@ import sphinx_radiac_theme  # noqa
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+def find_version(*paths):
+    path = Path(*paths)
+    content = path.read_text()
+    match = re.search(r"^__version__\s*=\s*['\"]([^'\"]*)['\"]", content, re.M)
+    if match:
+        return match.group(1)
+    raise RuntimeError("Unable to find version string.")
+
 
 project = "django-fancy-formset"
 copyright = "2023, Richard Terry"
 author = "Richard Terry"
-release = "0.2.0"
+release = find_version("..", "fancy_formset", "__init__.py")
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
