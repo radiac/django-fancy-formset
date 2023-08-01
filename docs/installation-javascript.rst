@@ -65,6 +65,7 @@ and import it in your code:
 .. code-block:: javascript
 
     import { init as init_formsets } from 'django-fancy-formset';
+    import 'django-fancy-formset/dist/formset.min.css';  // optional
 
     document.addEventListener('DOMContentLoaded', e => {
       init_formsets();
@@ -74,8 +75,8 @@ and import it in your code:
 As a module in the browser
 ==========================
 
-You can also use it as a module directly from your HTML - here we'll assume you've
-copied ``formset.module.js`` into your Django static dir:
+You can also use the JavaScript module directly from your HTML - here we'll assume
+you've copied ``formset.module.js`` into your Django static dir:
 
 .. code-block:: html
 

@@ -2,8 +2,17 @@
 Changelog
 =========
 
-0.2.1 to 0.2.2, 2023-07-26/27
-=============================
+1.0.0, 2023-08-01
+=================
+
+* Additional testing and documentation
+* Promote v0.2 to v1 stable release
+
+
+0.2.2, 2023-07-27
+=================
+
+(Also 0.2.1, 2023-07-26)
 
 Packaging and documentation updates.
 
