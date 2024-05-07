@@ -58,9 +58,11 @@ then leave it to Django to render your formset:
 </form>
 ```
 
+and that's it!
+
 See the
 [Django installation documentation](https://django-fancy-formset.readthedocs.io/en/latest/installation-django.html)
-for more details
+for more details, or read on if you want more direct control in JavaScript.
 
 ## Quickstart using JavaScript
 
