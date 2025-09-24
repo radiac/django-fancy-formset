@@ -42,7 +42,7 @@ fancy formset classes:
 from fancy_formset import FancyInlineFormSet
 
 BookInlineFormSet = forms.inlineformset_factory(
-    Author, Book, formset=InlineFancyFormSet,
+    Author, Book, formset=FancyInlineFormSet,
 )
 ```
 
