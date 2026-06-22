@@ -6,7 +6,6 @@ dist/
 coverage/
 
 # Python build
-fancy_formset/static/fancy_formset/
 dist-pypi/
 django_fancy_formset.egg-info/
 
