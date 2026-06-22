@@ -468,7 +468,6 @@ export class Formset {
    * @param {Form} form  The form instance being deactivated
    */
   deactivateForm(form) {
-    this.numForms -= 1
     this.render();
     this.event('formset:form-deactivate', form);
   }
