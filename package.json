@@ -1,6 +1,6 @@
 {
   "name": "django-fancy-formset",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A pure JavaScript library to manage Django formsets",
   "source": "src/formset.js",
   "main": "dist/formset.js",
