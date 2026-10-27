@@ -60,8 +60,44 @@ There is a default stylesheet available which:
 * Styles the add button
 
 This is available as ``formset.min.css`` if you want to use it directly, or
-``formset.css`` (or ``src/formset.scss`` in github) if you want to use it as a starting
+``formset.css`` (or ``src/formset.css`` in github) if you want to use it as a starting
 point.
+
+The colours and spacing are CSS variables on ``:root``, so you can restyle the default
+stylesheet from your own CSS without rebuilding it:
+
+.. code-block:: css
+
+    :root {
+      --formset-odd-bg: #f4f4f4;
+      --formset-add-bg-hover: cyan;
+    }
+
+Available variables, with their defaults:
+
+==================================  ===============  ================================
+Variable                            Default          Description
+==================================  ===============  ================================
+``--formset-border``                ``#aaa``         Line between forms
+``--formset-odd-bg``                ``#eee``         Background of odd forms
+``--formset-even-bg``               ``#ddd``         Background of even forms
+``--formset-padding-y``             ``0.25rem``      Vertical padding of each form
+``--formset-padding-x``             ``1rem``         Horizontal padding of each form
+``--formset-delete-width``          ``50px``         Width of the delete button
+``--formset-delete-fg``             ``#aaa``         Delete icon colour
+``--formset-delete-bg``             ``transparent``  Delete button background
+``--formset-delete-fg-hover``       ``#fff``         Delete icon colour on hover
+``--formset-delete-bg-hover``       ``#a22``         Delete button background on hover
+``--formset-delete-fg-active``      ``#eee``         Delete icon colour when deleted
+``--formset-delete-bg-active``      ``#822``         Delete button background when
+                                                     deleted
+``--formset-add-padding``           ``1rem``         Padding and bottom margin of the
+                                                     add button
+``--formset-add-fg``                ``#444``         Add icon colour
+``--formset-add-bg``                ``#ccc``         Add button background
+``--formset-add-fg-hover``          ``#fff``         Add icon colour on hover
+``--formset-add-bg-hover``          ``#2a2``         Add button background on hover
+==================================  ===============  ================================
 
 
 Initialise the formsets

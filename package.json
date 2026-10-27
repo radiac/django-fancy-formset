@@ -12,11 +12,10 @@
   "scripts": {
     "js:build": "vite build",
     "js:watch": "vite build --watch",
-    "css:build": "sass --no-source-map src/formset.scss dist/formset.css && csso dist/formset.css --output dist/formset.min.css",
-    "css:watch": " sass --watch src/formset.scss dist/formset.css",
+    "css:build": "cp src/formset.css dist/formset.css && csso src/formset.css --output dist/formset.min.css",
     "django": "mkdir -p fancy_formset/static/fancy_formset/ && cp dist/* fancy_formset/static/fancy_formset/",
     "build": "rm -f dist/* && npm run js:build && npm run css:build && npm run django",
-    "watch": "rm -f dist/* && concurrently \"npm run js:watch\" \"npm run css:watch\"",
+    "watch": "rm -f dist/* && npm run css:build && npm run js:watch",
     "test": "NODE_OPTIONS=\"--experimental-vm-modules --trace-warnings\" npx jest --coverage"
   },
   "repository": {
@@ -39,7 +38,6 @@
     "csso-cli": "^4.0.2",
     "jest": "^29.5.0",
     "jsdom": "^22.1.0",
-    "sass": "^1.63.6",
     "vite": "^4.3.9"
   }
 }

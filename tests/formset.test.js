@@ -207,6 +207,22 @@ describe('Add form', () => {
     expect(formset.atMax).toBe(true);
   });
 
+  it('ignores unnamed inputs', () => {
+    document.querySelectorAll('div[data-formset] fieldset').forEach((fieldset) => {
+      const helper = document.createElement('input');
+      helper.type = 'text';
+      fieldset.prepend(helper);
+    });
+
+    let formset = init_formset();
+    expect(formset.numForms).toBe(0);
+    assertDelete('__prefix__', false);
+
+    click('.formset-add');
+    assertFormCount(1);
+    expect(formset.numForms).toBe(1);
+  });
+
 });
 
 

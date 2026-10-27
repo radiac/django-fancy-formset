@@ -56,12 +56,14 @@ export class Form {
   }
 
   /**
-   * Get a list of the field elements in the form
+   * Get a list of named field elements in the form
    *
    * @returns {Array}  List of form field HTMLElements
    */
   getFields() {
-    return Array.from(this.rootEl.querySelectorAll('input,select,textarea'));
+    return Array.from(
+      this.rootEl.querySelectorAll('input,select,textarea')
+    ).filter((fieldEl) => fieldEl.name);
   }
 
   /**

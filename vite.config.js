@@ -32,7 +32,7 @@ export default defineConfig({
         }
       },
     },
-    emptyOutDir: false,  // avoid clash with scss
+    emptyOutDir: false,  // avoid clash with the css
     rollupOptions: {
       output: {
         //exports: 'named'

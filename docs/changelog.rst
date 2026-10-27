@@ -2,6 +2,19 @@
 Changelog
 =========
 
+1.1.0, TBC
+==========
+
+Changes:
+
+* The default SCSS stylesheet has been converted to CSS
+* Default CSS styles are now managed with CSS variables for easier customisation
+
+Bugfix:
+
+* Ignore form elements without a ``name``, like helper inputs added by js widgets
+
+
 1.0.0, 2023-08-01
 =================
 
